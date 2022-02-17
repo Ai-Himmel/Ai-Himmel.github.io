@@ -1,152 +1,73 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"aih.im","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="前言域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
-<meta name="keywords" content="Linux,LFS,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LFS-从零开始的Linux生活(上)">
 <meta property="og:url" content="https://aih.im/2019/04/09/lfs_1/index.html">
 <meta property="og:site_name" content="AiHimmel&#39;s Blog">
 <meta property="og:description" content="前言域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacac4265101.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacac74c4e67.png">
-<meta property="og:updated_time" content="2019-07-20T05:35:25.543Z">
+<meta property="article:published_time" content="2019-04-09T21:31:34.000Z">
+<meta property="article:modified_time" content="2022-02-17T22:56:21.391Z">
+<meta property="article:author" content="AiHimmel">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="LFS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LFS-从零开始的Linux生活(上)">
-<meta name="twitter:description" content="前言域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
 <meta name="twitter:image" content="https://i.loli.net/2019/04/09/5cacac4265101.jpg">
 
+<link rel="canonical" href="https://aih.im/2019/04/09/lfs_1/">
 
 
-
-
-  
-  
-  <link rel="canonical" href="https://aih.im/2019/04/09/lfs_1/">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>LFS-从零开始的Linux生活(上) | AiHimmel's Blog</title>
   
-
-
-
-
-  <script async src="//www.googletagmanager.com/gtag/js?id=UA-134537291-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-134537291-1');
-    }
-  </script>
-
-
-
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-134537291-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
 
 
 
@@ -155,7 +76,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -164,9 +84,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -180,129 +99,68 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">AiHimmel's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AiHimmel's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
 
 
+
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
 
-      
-      
-    </ul>
-  
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
 
-  
-
-  
+  </li>
+  </ul>
 </nav>
 
-
-
-  
 
 
 
@@ -310,136 +168,70 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
+
+          <div class="content post posts-expand">
             
 
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aih.im/2019/04/09/lfs_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="AiHimmel">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AiHimmel">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="AiHimmel's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">LFS-从零开始的Linux生活(上)
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          LFS-从零开始的Linux生活(上)
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
-              <time title="创建时间：2019-04-09 21:31:34" itemprop="dateCreated datePublished" datetime="2019-04-09T21:31:34+08:00">2019-04-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <time title="创建时间：2019-04-09 21:31:34" itemprop="dateCreated datePublished" datetime="2019-04-09T21:31:34+00:00">2019-04-09</time>
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-20 13:35:25" itemprop="dateModified" datetime="2019-07-20T13:35:25+08:00">2019-07-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-17 22:56:21" itemprop="dateModified" datetime="2022-02-17T22:56:21+00:00">2022-02-17</time>
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -447,12 +239,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://i.loli.net/2019/04/09/5cacac4265101.jpg" alt><br>域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。</p>
-<p>既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。<br><a id="more"></a><br>本文参考<a href="https://lctt.github.io/LFS-BOOK/" target="_blank" rel="noopener">Linux From Scratch 简体中文版</a>写成，在此特别感谢作者Gerard Beekmans以及Linux中国 LFS 翻译小组成员。</p>
-<p>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" rel="noopener">知识共享署名-非商业性使用-相同方式共享 2.0 通用许可协议</a>授权。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://i.loli.net/2019/04/09/5cacac4265101.jpg"><br>域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。</p>
+<p>既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。</p>
+<span id="more"></span>
+<p>本文参考<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/">Linux From Scratch 简体中文版</a>写成，在此特别感谢作者Gerard Beekmans以及Linux中国 LFS 翻译小组成员。</p>
+<p>本文采用<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/2.0/">知识共享署名-非商业性使用-相同方式共享 2.0 通用许可协议</a>授权。</p>
 <p>Linux® 为 Linus Torvalds 注册商标。</p>
 <h1 id="LFS简介"><a href="#LFS简介" class="headerlink" title="LFS简介"></a>LFS简介</h1><p>LFS 就是 Linux From Scratch(Linux 从头开始) <del>从零开始的Linux生活</del> ，这个From Scratch 就是和Docker的 <code>FROM scratch</code> 是一样的。</p>
 <p>简单说就是自己从源码开始完整的构建一个Linux。</p>
@@ -462,17 +253,20 @@
 <p><img src="https://i.loli.net/2019/04/09/5cacac74c4e67.png" alt="Arch-linux-boot-menu.png"></p>
 <p>启动到ArchLinux的LiveCD后，先启动<code>sshd</code>服务，这样我们就可以通过ssh安装，而不用手动去敲后面那些冗长的命令了。再修改一下root密码，方便登陆。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
 <p>之后我们就可以通过ssh连上宿主了。</p>
 <h3 id="检查宿主环境"><a href="#检查宿主环境" class="headerlink" title="检查宿主环境"></a>检查宿主环境</h3><p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; version-check.sh &lt;&lt; <span class="string">"EOF"</span></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Simple script to list version numbers of critical development tools</span></span><br><span class="line"><span class="built_in">export</span> LC_ALL=C</span><br><span class="line">bash --version | head -n1 | cut -d<span class="string">" "</span> -f2-4</span><br><span class="line">MYSH=$(readlink -f /bin/sh)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/bin/sh -&gt; <span class="variable">$MYSH</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$MYSH</span> | grep -q bash || <span class="built_in">echo</span> <span class="string">"ERROR: /bin/sh does not point to bash"</span></span><br><span class="line"><span class="built_in">unset</span> MYSH</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">"Binutils: "</span>; ld --version | head -n1 | cut -d<span class="string">" "</span> -f3-</span><br><span class="line">bison --version | head -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`"</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> yacc is `/usr/bin/yacc --version | head -n1`</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"yacc not found"</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">bzip2 --version 2&gt;&amp;1 &lt; /dev/null | head -n1 | cut -d<span class="string">" "</span> -f1,6-</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">"Coreutils: "</span>; chown --version | head -n1 | cut -d<span class="string">")"</span> -f2</span><br><span class="line">diff --version | head -n1</span><br><span class="line">find --version | head -n1</span><br><span class="line">gawk --version | head -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`"</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> awk is `/usr/bin/awk --version | head -n1`</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"awk not found"</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">gcc --version | head -n1</span><br><span class="line">g++ --version | head -n1</span><br><span class="line">ldd --version | head -n1 | cut -d<span class="string">" "</span> -f2-  <span class="comment"># glibc version</span></span><br><span class="line">grep --version | head -n1</span><br><span class="line">gzip --version | head -n1</span><br><span class="line">cat /proc/version</span><br><span class="line">m4 --version | head -n1</span><br><span class="line">make --version | head -n1</span><br><span class="line">patch --version | head -n1</span><br><span class="line"><span class="built_in">echo</span> Perl `perl -V:version`</span><br><span class="line">sed --version | head -n1</span><br><span class="line">tar --version | head -n1</span><br><span class="line">makeinfo --version | head -n1</span><br><span class="line">xz --version | head -n1</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'int main()&#123;&#125;'</span> &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c</span><br><span class="line"><span class="keyword">if</span> [ -x dummy ]</span><br><span class="line">  <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"g++ compilation OK"</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">"g++ compilation failed"</span>; <span class="keyword">fi</span></span><br><span class="line">rm -f dummy.c dummy</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">bash version-check.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; version-check.sh &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Simple script to list version numbers of critical development tools</span></span><br><span class="line"><span class="built_in">export</span> LC_ALL=C</span><br><span class="line">bash --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f2-4</span><br><span class="line">MYSH=$(<span class="built_in">readlink</span> -f /bin/sh)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/bin/sh -&gt; <span class="variable">$MYSH</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$MYSH</span> | grep -q bash || <span class="built_in">echo</span> <span class="string">&quot;ERROR: /bin/sh does not point to bash&quot;</span></span><br><span class="line"><span class="built_in">unset</span> MYSH</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;Binutils: &quot;</span>; ld --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f3-</span><br><span class="line">bison --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`&quot;</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> yacc is `/usr/bin/yacc --version | <span class="built_in">head</span> -n1`</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;yacc not found&quot;</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">bzip2 --version 2&gt;&amp;1 &lt; /dev/null | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f1,6-</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;Coreutils: &quot;</span>; <span class="built_in">chown</span> --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot;)&quot;</span> -f2</span><br><span class="line">diff --version | <span class="built_in">head</span> -n1</span><br><span class="line">find --version | <span class="built_in">head</span> -n1</span><br><span class="line">gawk --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`&quot;</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> awk is `/usr/bin/awk --version | <span class="built_in">head</span> -n1`</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;awk not found&quot;</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">gcc --version | <span class="built_in">head</span> -n1</span><br><span class="line">g++ --version | <span class="built_in">head</span> -n1</span><br><span class="line">ldd --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f2-  <span class="comment"># glibc version</span></span><br><span class="line">grep --version | <span class="built_in">head</span> -n1</span><br><span class="line">gzip --version | <span class="built_in">head</span> -n1</span><br><span class="line"><span class="built_in">cat</span> /proc/version</span><br><span class="line">m4 --version | <span class="built_in">head</span> -n1</span><br><span class="line">make --version | <span class="built_in">head</span> -n1</span><br><span class="line">patch --version | <span class="built_in">head</span> -n1</span><br><span class="line"><span class="built_in">echo</span> Perl `perl -V:version`</span><br><span class="line">sed --version | <span class="built_in">head</span> -n1</span><br><span class="line">tar --version | <span class="built_in">head</span> -n1</span><br><span class="line">makeinfo --version | <span class="built_in">head</span> -n1</span><br><span class="line">xz --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;int main()&#123;&#125;&#x27;</span> &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c</span><br><span class="line"><span class="keyword">if</span> [ -x dummy ]</span><br><span class="line">  <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;g++ compilation OK&quot;</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;g++ compilation failed&quot;</span>; <span class="keyword">fi</span></span><br><span class="line"><span class="built_in">rm</span> -f dummy.c dummy</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">bash version-check.sh</span><br></pre></td></tr></table></figure>
+
 <p>得到输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bash, version 5.0.0(1)-release</span><br><span class="line">/bin/sh -&gt; /usr/bin/bash</span><br><span class="line">Binutils: version-check.sh: line 10: ld: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 11: bison: <span class="built_in">command</span> not found</span><br><span class="line">yacc not found</span><br><span class="line">bzip2,  Version 1.0.6, 6-Sept-2010.</span><br><span class="line">Coreutils:  8.30</span><br><span class="line">diff (GNU diffutils) 3.7</span><br><span class="line">find (GNU findutils) 4.6.0</span><br><span class="line">GNU Awk 4.2.1, API: 2.0 (GNU MPFR 4.0.2, GNU MP 6.1.2)</span><br><span class="line">/usr/bin/awk -&gt; /usr/bin/gawk</span><br><span class="line">version-check.sh: line 35: gcc: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 36: g++: <span class="built_in">command</span> not found</span><br><span class="line">(GNU libc) 2.28</span><br><span class="line">grep (GNU grep) 3.3</span><br><span class="line">gzip 1.10</span><br><span class="line">Linux version 4.20.13-arch1-1-ARCH (builduser@heftig-17556) (gcc version 8.2.1 20181127 (GCC)) <span class="comment">#1 SMP PREEMPT Wed Feb 27 19:10:28 UTC 2019</span></span><br><span class="line">version-check.sh: line 41: m4: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 42: make: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 43: patch: <span class="built_in">command</span> not found</span><br><span class="line">Perl version=<span class="string">'5.28.1'</span>;</span><br><span class="line">sed (GNU sed) 4.7</span><br><span class="line">tar (GNU tar) 1.32</span><br><span class="line">texi2any (GNU texinfo) 6.5</span><br><span class="line">xz (XZ Utils) 5.2.4</span><br><span class="line">version-check.sh: line 50: g++: <span class="built_in">command</span> not found</span><br><span class="line">g++ compilation failed</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bash, version 5.0.0(1)-release</span><br><span class="line">/bin/sh -&gt; /usr/bin/bash</span><br><span class="line">Binutils: version-check.sh: line 10: ld: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 11: bison: <span class="built_in">command</span> not found</span><br><span class="line">yacc not found</span><br><span class="line">bzip2,  Version 1.0.6, 6-Sept-2010.</span><br><span class="line">Coreutils:  8.30</span><br><span class="line">diff (GNU diffutils) 3.7</span><br><span class="line">find (GNU findutils) 4.6.0</span><br><span class="line">GNU Awk 4.2.1, API: 2.0 (GNU MPFR 4.0.2, GNU MP 6.1.2)</span><br><span class="line">/usr/bin/awk -&gt; /usr/bin/gawk</span><br><span class="line">version-check.sh: line 35: gcc: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 36: g++: <span class="built_in">command</span> not found</span><br><span class="line">(GNU libc) 2.28</span><br><span class="line">grep (GNU grep) 3.3</span><br><span class="line">gzip 1.10</span><br><span class="line">Linux version 4.20.13-arch1-1-ARCH (builduser@heftig-17556) (gcc version 8.2.1 20181127 (GCC)) <span class="comment">#1 SMP PREEMPT Wed Feb 27 19:10:28 UTC 2019</span></span><br><span class="line">version-check.sh: line 41: m4: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 42: make: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 43: patch: <span class="built_in">command</span> not found</span><br><span class="line">Perl version=<span class="string">&#x27;5.28.1&#x27;</span>;</span><br><span class="line">sed (GNU sed) 4.7</span><br><span class="line">tar (GNU tar) 1.32</span><br><span class="line">texi2any (GNU texinfo) 6.5</span><br><span class="line">xz (XZ Utils) 5.2.4</span><br><span class="line">version-check.sh: line 50: g++: <span class="built_in">command</span> not found</span><br><span class="line">g++ compilation failed</span><br></pre></td></tr></table></figure>
+
 <p>看来环境差的有点多，慢慢配吧。</p>
-<p>首先更换pacman源，这里我选择了<a href="http://mirrors.ustc.edu.cn/help/archlinux.html" target="_blank" rel="noopener">中科大源</a>。</p>
+<p>首先更换pacman源，这里我选择了<a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/archlinux.html">中科大源</a>。</p>
 <p>更新之后安装缺少的环境。</p>
 <p><code>pacman -S  binutils bison gcc make patch</code></p>
 <p>再次执行<code>version-check.sh</code>可以发现不缺环境了。</p>
-<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>由于这只是实验性的构建系统，我们就将磁盘分为一个区，具体操作参见<a href="https://wiki.archlinux.org/index.php/Fdisk" target="_blank" rel="noopener"><code>fdisk</code></a>。</p>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>由于这只是实验性的构建系统，我们就将磁盘分为一个区，具体操作参见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fdisk"><code>fdisk</code></a>。</p>
 <p>注意：新建虚拟机的时候采用了UEFI请再划分一个efi分区（或叫boot）</p>
 <h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>毫无疑问，我们采用ext4分区。</p>
 <p><code>mkfs.ext4 /dev/sda1</code></p>
@@ -485,46 +279,54 @@
 <p>请确保输出的是你构建 LFS 的那个目录的路径，如果你是按照例子设置的，那就是 <code>/mnt/lfs</code>。如果你输出的路径不正确，请使用前一部分提供的命令把<code>$LFS</code>重新设置到正确的目录。</p>
 </blockquote>
 <h3 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h3><p>执行以下命令来挂载分区</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -pv <span class="variable">$LFS</span></span><br><span class="line">mount /dev/sda1 <span class="variable">$LFS</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -pv <span class="variable">$LFS</span></span><br><span class="line">mount /dev/sda1 <span class="variable">$LFS</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="准备软件包和补丁"><a href="#准备软件包和补丁" class="headerlink" title="准备软件包和补丁"></a>准备软件包和补丁</h2><p>在构建完整的Linux之前，我们需要一个基础环境。</p>
 <p>在下载之前，为了方便和整洁，我们新建一个工作用的目录。</p>
 <p>以<code>root</code>权限执行，创建这个目录，并设置目录的写权限和粘滞模式。「粘滞模式」是指，即便多个用户对某个目录有写权限，但仅有文件的所有者，能在粘滞目录中删除该文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -v <span class="variable">$LFS</span>/sources</span><br><span class="line">chmod -v a+wt <span class="variable">$LFS</span>/sources</span><br></pre></td></tr></table></figure>
-<p>我们可以用<a href="https://lctt.github.io/LFS-BOOK/lfs-systemd/wget-list" target="_blank" rel="noopener">wget-list</a>输入wget来快捷的下载所需的软件包和补丁。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -v <span class="variable">$LFS</span>/sources</span><br><span class="line"><span class="built_in">chmod</span> -v a+wt <span class="variable">$LFS</span>/sources</span><br></pre></td></tr></table></figure>
+
+<p>我们可以用<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/wget-list">wget-list</a>输入wget来快捷的下载所需的软件包和补丁。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://lctt.github.io/LFS-BOOK/lfs-systemd/wget-list</span><br><span class="line">wget --input-file=wget-list --<span class="built_in">continue</span> --directory-prefix=<span class="variable">$LFS</span>/sources</span><br></pre></td></tr></table></figure>
+
 <h2 id="最后的准备"><a href="#最后的准备" class="headerlink" title="最后的准备"></a>最后的准备</h2><h3 id="添加临时工作目录"><a href="#添加临时工作目录" class="headerlink" title="添加临时工作目录"></a>添加临时工作目录</h3><p>现在我们还有最后一点需要做的准备，现在我们构建的工具都是临时的，我们需要将其放在临时的目录里，方便用完后删除。</p>
 <p>以root用户执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -v <span class="variable">$LFS</span>/tools</span><br><span class="line">ln -sv <span class="variable">$LFS</span>/tools /</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -v <span class="variable">$LFS</span>/tools</span><br><span class="line"><span class="built_in">ln</span> -sv <span class="variable">$LFS</span>/tools /</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>如果你对第二条命令感到疑惑，请查阅<code>ln(1)</code>.</p>
 <p>TL;NR:</p>
 <p>第二命令是创建了<code>/tools</code>指向<code>$LFS/tools</code>的符号链接</p>
 </blockquote>
 <h3 id="添加LFS用户"><a href="#添加LFS用户" class="headerlink" title="添加LFS用户"></a>添加LFS用户</h3><p> 以root用户的身份构建系统可能会造成毁灭性的后果，所以我们添加一个非特特权用户来进行工作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd lfs</span><br><span class="line">useradd -s /bin/bash -g lfs -m -k /dev/null lfs</span><br><span class="line">passwd lfs</span><br><span class="line">chown -v lfs <span class="variable">$LFS</span>/tools</span><br><span class="line">chown -v lfs <span class="variable">$LFS</span>/sources</span><br><span class="line">su - lfs</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd lfs</span><br><span class="line">useradd -s /bin/bash -g lfs -m -k /dev/null lfs</span><br><span class="line">passwd lfs</span><br><span class="line"><span class="built_in">chown</span> -v lfs <span class="variable">$LFS</span>/tools</span><br><span class="line"><span class="built_in">chown</span> -v lfs <span class="variable">$LFS</span>/sources</span><br><span class="line">su - lfs</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>useradd</code>的<code>-k</code>选项防止了复制一些奇怪的东西到用户目录</p>
 </blockquote>
 <h3 id="设置环境"><a href="#设置环境" class="headerlink" title="设置环境"></a>设置环境</h3><p>我们现在需要为新用户配置合适的环境来确保构建的顺利。</p>
 <p>以<code>lfs</code>用户身份运行一下命令创建<code>.bash_profile</code>文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; ~/.bash_profile &lt;&lt; <span class="string">"EOF"</span></span><br><span class="line"><span class="built_in">exec</span> env -i HOME=<span class="variable">$HOME</span> TERM=<span class="variable">$TERM</span> PS1=<span class="string">'\u:\w\$ '</span> /bin/bash</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; ~/.bash_profile &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="built_in">exec</span> <span class="built_in">env</span> -i HOME=<span class="variable">$HOME</span> TERM=<span class="variable">$TERM</span> PS1=<span class="string">&#x27;\u:\w\$ &#x27;</span> /bin/bash</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
 <p>这一串命令确保了登陆<code>lfs</code>用户时环境变量的纯净，防止被外部环境变量污染导致错误。</p>
 <p>以<code>lfs</code>用户身份运行一下命令创建<code>.bashrc</code>文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; ~/.bashrc &lt;&lt; <span class="string">"EOF"</span></span><br><span class="line"><span class="built_in">set</span> +h</span><br><span class="line"><span class="built_in">umask</span> 022</span><br><span class="line">LFS=/mnt/lfs</span><br><span class="line">LC_ALL=POSIX</span><br><span class="line">LFS_TGT=$(uname -m)-lfs-linux-gnu</span><br><span class="line">PATH=/tools/bin:/bin:/usr/bin</span><br><span class="line"><span class="built_in">export</span> LFS LC_ALL LFS_TGT PATH</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; ~/.bashrc &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="built_in">set</span> +h</span><br><span class="line"><span class="built_in">umask</span> 022</span><br><span class="line">LFS=/mnt/lfs</span><br><span class="line">LC_ALL=POSIX</span><br><span class="line">LFS_TGT=$(<span class="built_in">uname</span> -m)-lfs-linux-gnu</span><br><span class="line">PATH=/tools/bin:/bin:/usr/bin</span><br><span class="line"><span class="built_in">export</span> LFS LC_ALL LFS_TGT PATH</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
 <p>这里关闭了<code>bash</code>的哈希功能，确保每次执行的命令都会从<code>PATH</code>里依次寻找，保证能使用最新编译的工具。</p>
 <p>设置掩码(umask)为022，以确保新建的文件和目录只有其所有者可写，但任何人都可读可执行。</p>
 <p><code>LFS</code> 变量应设置成选定的挂载点。</p>
 <p><code>LC_ALL</code> 变量控制某些程序的本地化，使它们的消息遵循特定国家的惯例。设置 <code>LC_ALL</code> 为「POSIX」或「C」（两者是等价的），确保在 chroot 环境中一切能如期望的那样进行。</p>
-<p><code>LFS_TGT</code> 变量设置了一个虽非默认，但在构建交叉编译器、连接器和交叉编译临时工作链时，用得上到的兼容的机器说明。参考<a href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/toolchaintechnotes.html" target="_blank" rel="noopener">Section 5.2, “工具链技术说明”</a>获得更多信息。</p>
+<p><code>LFS_TGT</code> 变量设置了一个虽非默认，但在构建交叉编译器、连接器和交叉编译临时工作链时，用得上到的兼容的机器说明。参考<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/toolchaintechnotes.html">Section 5.2, “工具链技术说明”</a>获得更多信息。</p>
 <p>最后，执行以下命令来完成我们的准备工作吧。</p>
 <p><code>source ~/.bash_profile</code></p>
-<h1 id="构建临时系统"><a href="#构建临时系统" class="headerlink" title="构建临时系统"></a>构建临时系统</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在开始构建之前请务必再进行以下检查来确保环境正确：</p>
-<ol start="0">
-<li><strong>执行<code>echo $LFS</code>确保环境变量正确</strong></li>
+<h1 id="构建临时系统"><a href="#构建临时系统" class="headerlink" title="构建临时系统"></a>构建临时系统</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在开始构建之前请务必再进行以下检查来确保环境正确：<br>0. <strong>执行<code>echo $LFS</code>确保环境变量正确</strong></p>
+<ol>
 <li>使用的shell是<code>bash</code></li>
 <li><code>sh</code>是到<code>bash</code>的符号链接</li>
 <li><code>/usr/bin/awk</code> 是到 <code>gawk</code> 的符号链接。</li>
-<li><code>/usr/bin/yacc</code> 是到 <code>bison</code> 的符号链接，或者是一个执行<code>bison</code> 的小脚本。</li>
+<li><code>/usr/bin/yacc</code> 是到 <code>bison</code> 的符号链接，或者是一个执行<code> bison</code> 的小脚本。</li>
 </ol>
 <p>构建过程</p>
 <ol>
@@ -539,317 +341,177 @@
 </ol>
 </li>
 </ol>
-<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>由于需要构建的包过于多，详细信息请从<a href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/binutils-pass1.html" target="_blank" rel="noopener">这里</a>开始阅读，并按照说明执行，若有重要信息我会在本文里说明。</p>
+<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>由于需要构建的包过于多，详细信息请从<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/binutils-pass1.html">这里</a>开始阅读，并按照说明执行，若有重要信息我会在本文里说明。</p>
 <h3 id="Binutils-2-31-1-第-1-遍"><a href="#Binutils-2-31-1-第-1-遍" class="headerlink" title="Binutils-2.31.1 - 第 1 遍"></a>Binutils-2.31.1 - 第 1 遍</h3><p>构建<code>Binutils</code>的时间将会作为编译用时参考，称为<code>SBU</code></p>
 <p>在<code>build</code>文件夹下的测试命令应为</p>
-<p><code>time { ../configure --prefix=/tools --with-sysroot=$LFS --with-lib-path=/tools/lib --target=$LFS_TGT --disable-nls --disable-werror&amp;&amp;make -j12 &amp;&amp;make install;}</code></p>
+<p><code>time &#123; ../configure --prefix=/tools --with-sysroot=$LFS --with-lib-path=/tools/lib --target=$LFS_TGT --disable-nls --disable-werror&amp;&amp;make -j12 &amp;&amp;make install;&#125;</code></p>
 <p>其中<code>j12</code>的多核编译参数请根据自己的cpu调整</p>
 <p>也可添加环境变量来自动设置</p>
 <p><code>export MAKEFLAGS=&#39;-j12&#39;</code></p>
 <h3 id="Tar-1-31"><a href="#Tar-1-31" class="headerlink" title="Tar-1.31"></a>Tar-1.31</h3><p>如果硬盘空间不够，请不要执行这个测试，血的教训啊</p>
 <h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>现在我们已经把临时系统构建好了，可以<del>开始摸鱼了</del>休息一下，过上若干天后，再继续或者不继续这个漫长的LFS之旅</p>
 
-      
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-      <div>
         
 
-
-
-
-  
-
-
-
+<div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>AiHimmel</li>
+    <strong>本文作者： </strong>AiHimmel
+  </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    
     <a href="https://aih.im/2019/04/09/lfs_1/" title="LFS-从零开始的Linux生活(上)">https://aih.im/2019/04/09/lfs_1/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
 </ul>
-
-      </div>
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/LFS/" rel="tag"># LFS</a>
-          
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/20/pray-for-kyoani/" rel="prev" title="pray for kyoani">
-                pray for kyoani <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">AiHimmel</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LFS简介"><span class="nav-number">2.</span> <span class="nav-text">LFS简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备宿主"><span class="nav-number">3.1.</span> <span class="nav-text">准备宿主</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查宿主环境"><span class="nav-number">3.1.1.</span> <span class="nav-text">检查宿主环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区"><span class="nav-number">3.1.2.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化"><span class="nav-number">3.1.3.</span> <span class="nav-text">格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-LFS变量"><span class="nav-number">3.1.4.</span> <span class="nav-text">设置$LFS变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小心"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">小心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载分区"><span class="nav-number">3.1.5.</span> <span class="nav-text">挂载分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备软件包和补丁"><span class="nav-number">3.2.</span> <span class="nav-text">准备软件包和补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后的准备"><span class="nav-number">3.3.</span> <span class="nav-text">最后的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加临时工作目录"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加临时工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加LFS用户"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加LFS用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置环境"><span class="nav-number">3.3.3.</span> <span class="nav-text">设置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建临时系统"><span class="nav-number">4.</span> <span class="nav-text">构建临时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建"><span class="nav-number">4.2.</span> <span class="nav-text">构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binutils-2-31-1-第-1-遍"><span class="nav-number">4.2.1.</span> <span class="nav-text">Binutils-2.31.1 - 第 1 遍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tar-1-31"><span class="nav-number">4.2.2.</span> <span class="nav-text">Tar-1.31</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尾声"><span class="nav-number">5.</span> <span class="nav-text">尾声</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">AiHimmel</span>
-
-  
-
-  
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
-
-
-
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/LFS/" rel="tag"># LFS</a>
+          </div>
 
         
 
 
-
-
-
-
-
-
         
-      </div>
-    </footer>
-
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/07/20/pray-for-kyoani/" rel="next" title="pray for kyoani">
+      pray for kyoani <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
+  </article>
+  
+  
   
 
+
+
+          </div>
+          
+
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LFS%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">LFS简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%BF%E4%B8%BB"><span class="nav-number">3.1.</span> <span class="nav-text">准备宿主</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%AE%BF%E4%B8%BB%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.1.</span> <span class="nav-text">检查宿主环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.2.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">3.1.3.</span> <span class="nav-text">格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-LFS%E5%8F%98%E9%87%8F"><span class="nav-number">3.1.4.</span> <span class="nav-text">设置$LFS变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E5%BF%83"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">小心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.5.</span> <span class="nav-text">挂载分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%92%8C%E8%A1%A5%E4%B8%81"><span class="nav-number">3.2.</span> <span class="nav-text">准备软件包和补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">3.3.</span> <span class="nav-text">最后的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%B4%E6%97%B6%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加临时工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0LFS%E7%94%A8%E6%88%B7"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加LFS用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-number">3.3.3.</span> <span class="nav-text">设置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%B4%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">构建临时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA"><span class="nav-number">4.2.</span> <span class="nav-text">构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binutils-2-31-1-%E7%AC%AC-1-%E9%81%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">Binutils-2.31.1 - 第 1 遍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tar-1-31"><span class="nav-number">4.2.2.</span> <span class="nav-text">Tar-1.31</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%BE%E5%A3%B0"><span class="nav-number">5.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">AiHimmel</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AiHimmel</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
 
 
 
@@ -858,105 +520,43 @@
 
 
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
 
 
 
 
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
 
 
 
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
