@@ -2,16 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://aih.im/tags/index.html</loc>
-    
-    <lastmod>2022-02-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://aih.im/2022/02/18/math-test/</loc>
+    <loc>https://aih.im/2022/02/18/math4hexo/</loc>
     
     <lastmod>2022-02-18</lastmod>
     
@@ -21,6 +12,15 @@
   
   <url>
     <loc>https://aih.im/categories/index.html</loc>
+    
+    <lastmod>2022-02-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/index.html</loc>
     
     <lastmod>2022-02-18</lastmod>
     
