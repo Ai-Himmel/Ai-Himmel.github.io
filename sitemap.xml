@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://aih.im/2022/02/18/blink-fx/</loc>
-    
-    <lastmod>2022-02-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://aih.im/categories/index.html</loc>
     
     <lastmod>2022-02-18</lastmod>
@@ -54,20 +45,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://aih.im/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
-    <lastmod>2022-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aih.im/tags/Unreal-Engine/</loc>
-    <lastmod>2022-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://aih.im/tags/Linux/</loc>
