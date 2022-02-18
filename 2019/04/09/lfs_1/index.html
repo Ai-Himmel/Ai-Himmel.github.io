@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"aih.im","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
+  <meta name="description" content="前言  域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LFS-从零开始的Linux生活(上)">
 <meta property="og:url" content="https://aih.im/2019/04/09/lfs_1/index.html">
 <meta property="og:site_name" content="AiHimmel&#39;s Blog">
-<meta property="og:description" content="前言域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
+<meta property="og:description" content="前言  域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。 既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacac4265101.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacac74c4e67.png">
@@ -232,81 +232,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://i.loli.net/2019/04/09/5cacac4265101.jpg"><br>域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。</p>
-<p>既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。</p>
-<span id="more"></span>
-<p>本文参考<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/">Linux From Scratch 简体中文版</a>写成，在此特别感谢作者Gerard Beekmans以及Linux中国 LFS 翻译小组成员。</p>
+        <h1 id="前言">前言</h1>
+<p><img src="https://i.loli.net/2019/04/09/5cacac4265101.jpg" /> 域名买了一亿年了，结果还是只有Hello World，实在看不下去了，总之写点东西吧。</p>
+<p>既然是博客的第一篇文章，当然是开天辟地的（X），所以就来写一下LFS吧。 <span id="more"></span> 本文参考<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/">Linux From Scratch 简体中文版</a>写成，在此特别感谢作者Gerard Beekmans以及Linux中国 LFS 翻译小组成员。</p>
 <p>本文采用<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/2.0/">知识共享署名-非商业性使用-相同方式共享 2.0 通用许可协议</a>授权。</p>
 <p>Linux® 为 Linus Torvalds 注册商标。</p>
-<h1 id="LFS简介"><a href="#LFS简介" class="headerlink" title="LFS简介"></a>LFS简介</h1><p>LFS 就是 Linux From Scratch(Linux 从头开始) <del>从零开始的Linux生活</del> ，这个From Scratch 就是和Docker的 <code>FROM scratch</code> 是一样的。</p>
+<h1 id="lfs简介">LFS简介</h1>
+<p>LFS 就是 Linux From Scratch(Linux 从头开始) <del>从零开始的Linux生活</del> ，这个From Scratch 就是和Docker的 <code>FROM scratch</code> 是一样的。</p>
 <p>简单说就是自己从源码开始完整的构建一个Linux。</p>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="准备宿主"><a href="#准备宿主" class="headerlink" title="准备宿主"></a>准备宿主</h2><p>自己构建一个Linux，首先你需要一个Linux环境（……），这里我们选择ArchLinux的LiveCD作为我们的宿主环境。</p>
+<h1 id="准备">准备</h1>
+<h2 id="准备宿主">准备宿主</h2>
+<p>自己构建一个Linux，首先你需要一个Linux环境（……），这里我们选择ArchLinux的LiveCD作为我们的宿主环境。</p>
 <p>在VMware里新建一个虚拟机，分配上足够的CPU，因为后面会有无尽的编译。</p>
 <p>在选择引导的时候，按tab键修改启动参数，在最后加上<code>cow_spacesize=1G</code>来确保在Live环境中有足够的空间来更新包与安装其他必备包。</p>
-<p><img src="https://i.loli.net/2019/04/09/5cacac74c4e67.png" alt="Arch-linux-boot-menu.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/04/09/5cacac74c4e67.png" alt="Arch-linux-boot-menu.png" /><figcaption>Arch-linux-boot-menu.png</figcaption>
+</figure>
 <p>启动到ArchLinux的LiveCD后，先启动<code>sshd</code>服务，这样我们就可以通过ssh安装，而不用手动去敲后面那些冗长的命令了。再修改一下root密码，方便登陆。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
 <p>之后我们就可以通过ssh连上宿主了。</p>
-<h3 id="检查宿主环境"><a href="#检查宿主环境" class="headerlink" title="检查宿主环境"></a>检查宿主环境</h3><p>执行命令</p>
+<h3 id="检查宿主环境">检查宿主环境</h3>
+<p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; version-check.sh &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Simple script to list version numbers of critical development tools</span></span><br><span class="line"><span class="built_in">export</span> LC_ALL=C</span><br><span class="line">bash --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f2-4</span><br><span class="line">MYSH=$(<span class="built_in">readlink</span> -f /bin/sh)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/bin/sh -&gt; <span class="variable">$MYSH</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$MYSH</span> | grep -q bash || <span class="built_in">echo</span> <span class="string">&quot;ERROR: /bin/sh does not point to bash&quot;</span></span><br><span class="line"><span class="built_in">unset</span> MYSH</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;Binutils: &quot;</span>; ld --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f3-</span><br><span class="line">bison --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`&quot;</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/yacc ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> yacc is `/usr/bin/yacc --version | <span class="built_in">head</span> -n1`</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;yacc not found&quot;</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">bzip2 --version 2&gt;&amp;1 &lt; /dev/null | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f1,6-</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;Coreutils: &quot;</span>; <span class="built_in">chown</span> --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot;)&quot;</span> -f2</span><br><span class="line">diff --version | <span class="built_in">head</span> -n1</span><br><span class="line">find --version | <span class="built_in">head</span> -n1</span><br><span class="line">gawk --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -h /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`&quot;</span>;</span><br><span class="line"><span class="keyword">elif</span> [ -x /usr/bin/awk ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> awk is `/usr/bin/awk --version | <span class="built_in">head</span> -n1`</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;awk not found&quot;</span> </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">gcc --version | <span class="built_in">head</span> -n1</span><br><span class="line">g++ --version | <span class="built_in">head</span> -n1</span><br><span class="line">ldd --version | <span class="built_in">head</span> -n1 | <span class="built_in">cut</span> -d<span class="string">&quot; &quot;</span> -f2-  <span class="comment"># glibc version</span></span><br><span class="line">grep --version | <span class="built_in">head</span> -n1</span><br><span class="line">gzip --version | <span class="built_in">head</span> -n1</span><br><span class="line"><span class="built_in">cat</span> /proc/version</span><br><span class="line">m4 --version | <span class="built_in">head</span> -n1</span><br><span class="line">make --version | <span class="built_in">head</span> -n1</span><br><span class="line">patch --version | <span class="built_in">head</span> -n1</span><br><span class="line"><span class="built_in">echo</span> Perl `perl -V:version`</span><br><span class="line">sed --version | <span class="built_in">head</span> -n1</span><br><span class="line">tar --version | <span class="built_in">head</span> -n1</span><br><span class="line">makeinfo --version | <span class="built_in">head</span> -n1</span><br><span class="line">xz --version | <span class="built_in">head</span> -n1</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;int main()&#123;&#125;&#x27;</span> &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c</span><br><span class="line"><span class="keyword">if</span> [ -x dummy ]</span><br><span class="line">  <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;g++ compilation OK&quot;</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in">echo</span> <span class="string">&quot;g++ compilation failed&quot;</span>; <span class="keyword">fi</span></span><br><span class="line"><span class="built_in">rm</span> -f dummy.c dummy</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">bash version-check.sh</span><br></pre></td></tr></table></figure>
-
 <p>得到输出</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bash, version 5.0.0(1)-release</span><br><span class="line">/bin/sh -&gt; /usr/bin/bash</span><br><span class="line">Binutils: version-check.sh: line 10: ld: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 11: bison: <span class="built_in">command</span> not found</span><br><span class="line">yacc not found</span><br><span class="line">bzip2,  Version 1.0.6, 6-Sept-2010.</span><br><span class="line">Coreutils:  8.30</span><br><span class="line">diff (GNU diffutils) 3.7</span><br><span class="line">find (GNU findutils) 4.6.0</span><br><span class="line">GNU Awk 4.2.1, API: 2.0 (GNU MPFR 4.0.2, GNU MP 6.1.2)</span><br><span class="line">/usr/bin/awk -&gt; /usr/bin/gawk</span><br><span class="line">version-check.sh: line 35: gcc: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 36: g++: <span class="built_in">command</span> not found</span><br><span class="line">(GNU libc) 2.28</span><br><span class="line">grep (GNU grep) 3.3</span><br><span class="line">gzip 1.10</span><br><span class="line">Linux version 4.20.13-arch1-1-ARCH (builduser@heftig-17556) (gcc version 8.2.1 20181127 (GCC)) <span class="comment">#1 SMP PREEMPT Wed Feb 27 19:10:28 UTC 2019</span></span><br><span class="line">version-check.sh: line 41: m4: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 42: make: <span class="built_in">command</span> not found</span><br><span class="line">version-check.sh: line 43: patch: <span class="built_in">command</span> not found</span><br><span class="line">Perl version=<span class="string">&#x27;5.28.1&#x27;</span>;</span><br><span class="line">sed (GNU sed) 4.7</span><br><span class="line">tar (GNU tar) 1.32</span><br><span class="line">texi2any (GNU texinfo) 6.5</span><br><span class="line">xz (XZ Utils) 5.2.4</span><br><span class="line">version-check.sh: line 50: g++: <span class="built_in">command</span> not found</span><br><span class="line">g++ compilation failed</span><br></pre></td></tr></table></figure>
-
 <p>看来环境差的有点多，慢慢配吧。</p>
 <p>首先更换pacman源，这里我选择了<a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/archlinux.html">中科大源</a>。</p>
 <p>更新之后安装缺少的环境。</p>
 <p><code>pacman -S  binutils bison gcc make patch</code></p>
 <p>再次执行<code>version-check.sh</code>可以发现不缺环境了。</p>
-<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>由于这只是实验性的构建系统，我们就将磁盘分为一个区，具体操作参见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fdisk"><code>fdisk</code></a>。</p>
+<h3 id="分区">分区</h3>
+<p>由于这只是实验性的构建系统，我们就将磁盘分为一个区，具体操作参见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fdisk"><code>fdisk</code></a>。</p>
 <p>注意：新建虚拟机的时候采用了UEFI请再划分一个efi分区（或叫boot）</p>
-<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>毫无疑问，我们采用ext4分区。</p>
+<h3 id="格式化">格式化</h3>
+<p>毫无疑问，我们采用ext4分区。</p>
 <p><code>mkfs.ext4 /dev/sda1</code></p>
 <p>注意：请根据实际情况将sda1替换为实际的分区。</p>
-<h3 id="设置-LFS变量"><a href="#设置-LFS变量" class="headerlink" title="设置$LFS变量"></a>设置$LFS变量</h3><p>在整个构建LFS的过程中，我们会多次用到环境变量 <code>LFS</code> ，它应该被设置为你将要构建的 LFS 系统的目录名，这里我们使用 <code>/mnt/lfs</code></p>
+<h3 id="设置lfs变量">设置$LFS变量</h3>
+<p>在整个构建LFS的过程中，我们会多次用到环境变量 <code>LFS</code> ，它应该被设置为你将要构建的 LFS 系统的目录名，这里我们使用 <code>/mnt/lfs</code></p>
 <p><code>export LFS=/mnt/lfs</code></p>
 <blockquote>
-<h4 id="小心"><a href="#小心" class="headerlink" title="小心"></a>小心</h4><p>不论何时，当你离开又重新进入这个工作环境时都不要忘了检查 LFS 是否设置（比如当你使用 su 切换到 root 或是另一个用户时）。使用如下命令检查 LFS 变量是否正确设置：</p>
+<h4 id="小心">小心</h4>
+<p>不论何时，当你离开又重新进入这个工作环境时都不要忘了检查 LFS 是否设置（比如当你使用 su 切换到 root 或是另一个用户时）。使用如下命令检查 LFS 变量是否正确设置：</p>
 <p><code>echo $LFS</code></p>
 <p>请确保输出的是你构建 LFS 的那个目录的路径，如果你是按照例子设置的，那就是 <code>/mnt/lfs</code>。如果你输出的路径不正确，请使用前一部分提供的命令把<code>$LFS</code>重新设置到正确的目录。</p>
 </blockquote>
-<h3 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h3><p>执行以下命令来挂载分区</p>
+<h3 id="挂载分区">挂载分区</h3>
+<p>执行以下命令来挂载分区</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -pv <span class="variable">$LFS</span></span><br><span class="line">mount /dev/sda1 <span class="variable">$LFS</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="准备软件包和补丁"><a href="#准备软件包和补丁" class="headerlink" title="准备软件包和补丁"></a>准备软件包和补丁</h2><p>在构建完整的Linux之前，我们需要一个基础环境。</p>
+<h2 id="准备软件包和补丁">准备软件包和补丁</h2>
+<p>在构建完整的Linux之前，我们需要一个基础环境。</p>
 <p>在下载之前，为了方便和整洁，我们新建一个工作用的目录。</p>
 <p>以<code>root</code>权限执行，创建这个目录，并设置目录的写权限和粘滞模式。「粘滞模式」是指，即便多个用户对某个目录有写权限，但仅有文件的所有者，能在粘滞目录中删除该文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -v <span class="variable">$LFS</span>/sources</span><br><span class="line"><span class="built_in">chmod</span> -v a+wt <span class="variable">$LFS</span>/sources</span><br></pre></td></tr></table></figure>
-
 <p>我们可以用<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/wget-list">wget-list</a>输入wget来快捷的下载所需的软件包和补丁。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://lctt.github.io/LFS-BOOK/lfs-systemd/wget-list</span><br><span class="line">wget --input-file=wget-list --<span class="built_in">continue</span> --directory-prefix=<span class="variable">$LFS</span>/sources</span><br></pre></td></tr></table></figure>
-
-<h2 id="最后的准备"><a href="#最后的准备" class="headerlink" title="最后的准备"></a>最后的准备</h2><h3 id="添加临时工作目录"><a href="#添加临时工作目录" class="headerlink" title="添加临时工作目录"></a>添加临时工作目录</h3><p>现在我们还有最后一点需要做的准备，现在我们构建的工具都是临时的，我们需要将其放在临时的目录里，方便用完后删除。</p>
+<h2 id="最后的准备">最后的准备</h2>
+<h3 id="添加临时工作目录">添加临时工作目录</h3>
+<p>现在我们还有最后一点需要做的准备，现在我们构建的工具都是临时的，我们需要将其放在临时的目录里，方便用完后删除。</p>
 <p>以root用户执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -v <span class="variable">$LFS</span>/tools</span><br><span class="line"><span class="built_in">ln</span> -sv <span class="variable">$LFS</span>/tools /</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>如果你对第二条命令感到疑惑，请查阅<code>ln(1)</code>.</p>
 <p>TL;NR:</p>
 <p>第二命令是创建了<code>/tools</code>指向<code>$LFS/tools</code>的符号链接</p>
 </blockquote>
-<h3 id="添加LFS用户"><a href="#添加LFS用户" class="headerlink" title="添加LFS用户"></a>添加LFS用户</h3><p> 以root用户的身份构建系统可能会造成毁灭性的后果，所以我们添加一个非特特权用户来进行工作。</p>
+<p>### 添加LFS用户</p>
+<p>以root用户的身份构建系统可能会造成毁灭性的后果，所以我们添加一个非特特权用户来进行工作。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd lfs</span><br><span class="line">useradd -s /bin/bash -g lfs -m -k /dev/null lfs</span><br><span class="line">passwd lfs</span><br><span class="line"><span class="built_in">chown</span> -v lfs <span class="variable">$LFS</span>/tools</span><br><span class="line"><span class="built_in">chown</span> -v lfs <span class="variable">$LFS</span>/sources</span><br><span class="line">su - lfs</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>useradd</code>的<code>-k</code>选项防止了复制一些奇怪的东西到用户目录</p>
 </blockquote>
-<h3 id="设置环境"><a href="#设置环境" class="headerlink" title="设置环境"></a>设置环境</h3><p>我们现在需要为新用户配置合适的环境来确保构建的顺利。</p>
+<h3 id="设置环境">设置环境</h3>
+<p>我们现在需要为新用户配置合适的环境来确保构建的顺利。</p>
 <p>以<code>lfs</code>用户身份运行一下命令创建<code>.bash_profile</code>文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; ~/.bash_profile &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="built_in">exec</span> <span class="built_in">env</span> -i HOME=<span class="variable">$HOME</span> TERM=<span class="variable">$TERM</span> PS1=<span class="string">&#x27;\u:\w\$ &#x27;</span> /bin/bash</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
 <p>这一串命令确保了登陆<code>lfs</code>用户时环境变量的纯净，防止被外部环境变量污染导致错误。</p>
 <p>以<code>lfs</code>用户身份运行一下命令创建<code>.bashrc</code>文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; ~/.bashrc &lt;&lt; <span class="string">&quot;EOF&quot;</span></span><br><span class="line"><span class="built_in">set</span> +h</span><br><span class="line"><span class="built_in">umask</span> 022</span><br><span class="line">LFS=/mnt/lfs</span><br><span class="line">LC_ALL=POSIX</span><br><span class="line">LFS_TGT=$(<span class="built_in">uname</span> -m)-lfs-linux-gnu</span><br><span class="line">PATH=/tools/bin:/bin:/usr/bin</span><br><span class="line"><span class="built_in">export</span> LFS LC_ALL LFS_TGT PATH</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
 <p>这里关闭了<code>bash</code>的哈希功能，确保每次执行的命令都会从<code>PATH</code>里依次寻找，保证能使用最新编译的工具。</p>
 <p>设置掩码(umask)为022，以确保新建的文件和目录只有其所有者可写，但任何人都可读可执行。</p>
 <p><code>LFS</code> 变量应设置成选定的挂载点。</p>
@@ -314,35 +317,35 @@
 <p><code>LFS_TGT</code> 变量设置了一个虽非默认，但在构建交叉编译器、连接器和交叉编译临时工作链时，用得上到的兼容的机器说明。参考<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/toolchaintechnotes.html">Section 5.2, “工具链技术说明”</a>获得更多信息。</p>
 <p>最后，执行以下命令来完成我们的准备工作吧。</p>
 <p><code>source ~/.bash_profile</code></p>
-<h1 id="构建临时系统"><a href="#构建临时系统" class="headerlink" title="构建临时系统"></a>构建临时系统</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在开始构建之前请务必再进行以下检查来确保环境正确：<br>0. <strong>执行<code>echo $LFS</code>确保环境变量正确</strong></p>
-<ol>
-<li>使用的shell是<code>bash</code></li>
-<li><code>sh</code>是到<code>bash</code>的符号链接</li>
-<li><code>/usr/bin/awk</code> 是到 <code>gawk</code> 的符号链接。</li>
-<li><code>/usr/bin/yacc</code> 是到 <code>bison</code> 的符号链接，或者是一个执行<code> bison</code> 的小脚本。</li>
-</ol>
+<h1 id="构建临时系统">构建临时系统</h1>
+<h2 id="说明">说明</h2>
+<p>在开始构建之前请务必再进行以下检查来确保环境正确： 0. <strong>执行<code>echo $LFS</code>确保环境变量正确</strong> 1. 使用的shell是<code>bash</code> 2. <code>sh</code>是到<code>bash</code>的符号链接 3. <code>/usr/bin/awk</code> 是到 <code>gawk</code> 的符号链接。 4. <code>/usr/bin/yacc</code> 是到 <code>bison</code> 的符号链接，或者是一个执行<code>bison</code> 的小脚本。</p>
 <p>构建过程</p>
-<ol>
+<ol type="1">
 <li>把所有源文件和补丁放到 chroot 环境可访问的目录，例如 <code>/mnt/lfs/sources/</code>。但是千万<strong>不能</strong>把源文件放在 <code>/mnt/lfs/tools/</code> 中。</li>
 <li>进入到源文件目录。</li>
-<li>对于每个软件包：<ol>
+<li>对于每个软件包：
+<ol type="1">
 <li>用 <code>tar</code> 程序解压要编译的软件包。构建临时系统时，确保解压软件包时你使用的是 <code>lfs</code> 用户。</li>
 <li>进入到解压后创建的目录中。</li>
 <li>根据指南说明编译软件包。</li>
 <li>回退到源文件目录。</li>
 <li>除非特别说明，删除解压出来的目录。</li>
+</ol></li>
 </ol>
-</li>
-</ol>
-<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>由于需要构建的包过于多，详细信息请从<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/binutils-pass1.html">这里</a>开始阅读，并按照说明执行，若有重要信息我会在本文里说明。</p>
-<h3 id="Binutils-2-31-1-第-1-遍"><a href="#Binutils-2-31-1-第-1-遍" class="headerlink" title="Binutils-2.31.1 - 第 1 遍"></a>Binutils-2.31.1 - 第 1 遍</h3><p>构建<code>Binutils</code>的时间将会作为编译用时参考，称为<code>SBU</code></p>
+<h2 id="构建">构建</h2>
+<p>由于需要构建的包过于多，详细信息请从<a target="_blank" rel="noopener" href="https://lctt.github.io/LFS-BOOK/lfs-systemd/chapter05/binutils-pass1.html">这里</a>开始阅读，并按照说明执行，若有重要信息我会在本文里说明。</p>
+<h3 id="binutils-2.31.1---第-1-遍">Binutils-2.31.1 - 第 1 遍</h3>
+<p>构建<code>Binutils</code>的时间将会作为编译用时参考，称为<code>SBU</code></p>
 <p>在<code>build</code>文件夹下的测试命令应为</p>
 <p><code>time &#123; ../configure --prefix=/tools --with-sysroot=$LFS --with-lib-path=/tools/lib --target=$LFS_TGT --disable-nls --disable-werror&amp;&amp;make -j12 &amp;&amp;make install;&#125;</code></p>
 <p>其中<code>j12</code>的多核编译参数请根据自己的cpu调整</p>
 <p>也可添加环境变量来自动设置</p>
-<p><code>export MAKEFLAGS=&#39;-j12&#39;</code></p>
-<h3 id="Tar-1-31"><a href="#Tar-1-31" class="headerlink" title="Tar-1.31"></a>Tar-1.31</h3><p>如果硬盘空间不够，请不要执行这个测试，血的教训啊</p>
-<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>现在我们已经把临时系统构建好了，可以<del>开始摸鱼了</del>休息一下，过上若干天后，再继续或者不继续这个漫长的LFS之旅</p>
+<p><code>export MAKEFLAGS='-j12'</code></p>
+<h3 id="tar-1.31">Tar-1.31</h3>
+<p>如果硬盘空间不够，请不要执行这个测试，血的教训啊</p>
+<h1 id="尾声">尾声</h1>
+<p>现在我们已经把临时系统构建好了，可以<del>开始摸鱼了</del>休息一下，过上若干天后，再继续或者不继续这个漫长的LFS之旅</p>
 
     </div>
 
@@ -441,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LFS%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">LFS简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%BF%E4%B8%BB"><span class="nav-number">3.1.</span> <span class="nav-text">准备宿主</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%AE%BF%E4%B8%BB%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.1.</span> <span class="nav-text">检查宿主环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.2.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">3.1.3.</span> <span class="nav-text">格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-LFS%E5%8F%98%E9%87%8F"><span class="nav-number">3.1.4.</span> <span class="nav-text">设置$LFS变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E5%BF%83"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">小心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.5.</span> <span class="nav-text">挂载分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%92%8C%E8%A1%A5%E4%B8%81"><span class="nav-number">3.2.</span> <span class="nav-text">准备软件包和补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">3.3.</span> <span class="nav-text">最后的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%B4%E6%97%B6%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加临时工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0LFS%E7%94%A8%E6%88%B7"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加LFS用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-number">3.3.3.</span> <span class="nav-text">设置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%B4%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">构建临时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA"><span class="nav-number">4.2.</span> <span class="nav-text">构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binutils-2-31-1-%E7%AC%AC-1-%E9%81%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">Binutils-2.31.1 - 第 1 遍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tar-1-31"><span class="nav-number">4.2.2.</span> <span class="nav-text">Tar-1.31</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%BE%E5%A3%B0"><span class="nav-number">5.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lfs%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">LFS简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%BF%E4%B8%BB"><span class="nav-number">3.1.</span> <span class="nav-text">准备宿主</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%AE%BF%E4%B8%BB%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.1.</span> <span class="nav-text">检查宿主环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.2.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">3.1.3.</span> <span class="nav-text">格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AElfs%E5%8F%98%E9%87%8F"><span class="nav-number">3.1.4.</span> <span class="nav-text">设置$LFS变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E5%BF%83"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">小心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="nav-number">3.1.5.</span> <span class="nav-text">挂载分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%92%8C%E8%A1%A5%E4%B8%81"><span class="nav-number">3.2.</span> <span class="nav-text">准备软件包和补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">3.3.</span> <span class="nav-text">最后的准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%B4%E6%97%B6%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加临时工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-number">3.3.2.</span> <span class="nav-text">设置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%B4%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">构建临时系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA"><span class="nav-number">4.2.</span> <span class="nav-text">构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#binutils-2.31.1---%E7%AC%AC-1-%E9%81%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">Binutils-2.31.1 - 第 1 遍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tar-1.31"><span class="nav-number">4.2.2.</span> <span class="nav-text">Tar-1.31</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%BE%E5%A3%B0"><span class="nav-number">5.</span> <span class="nav-text">尾声</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,7 +458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
