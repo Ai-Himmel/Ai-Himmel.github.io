@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://aih.im/2022/02/18/math4hexo/</loc>
+    <loc>https://aih.im/2022/04/26/math4hexo/</loc>
     
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/2022/02/18/oit-ppll/</loc>
+    
+    <lastmod>2022-04-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +22,7 @@
   <url>
     <loc>https://aih.im/categories/index.html</loc>
     
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +31,7 @@
   <url>
     <loc>https://aih.im/tags/index.html</loc>
     
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,7 +58,7 @@
 
   <url>
     <loc>https://aih.im/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,14 +66,63 @@
   
   <url>
     <loc>https://aih.im/tags/Linux/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://aih.im/tags/LFS/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/OIT/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/Unity/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/Hexo/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/NexT/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/GitHub-Actions/</loc>
+    <lastmod>2022-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aih.im/tags/LaTeX/</loc>
+    <lastmod>2022-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -73,7 +131,7 @@
   
   <url>
     <loc>https://aih.im/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2022-02-18</lastmod>
+    <lastmod>2022-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
