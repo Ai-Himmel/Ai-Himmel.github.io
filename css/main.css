@@ -1172,7 +1172,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3dac7d;
+  background: #ff38ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2561,6 +2561,13 @@ ul.breadcrumb li + li:last-child {
     margin: 8px 0 0;
   }
 }
+@font-face {
+  font-family: Juliamo;
+  src: url("/fonts/juliamo.woff") format('woff');
+}
 mjx-container {
-  color: #000;
+  color: var(--text-color);
+}
+.site-title {
+  font-family: Juliamo;
 }
